@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benson Goldstein — Service Status</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --card: #ffffff; --text: #16181d; --muted: #667085;
+    --border: #e4e7ec; --up: #12805c; --up-bg: #e7f6ef;
+    --down: #b42318; --down-bg: #fdecea; --warn: #b54708; --warn-bg: #fff4e5;
+    --accent: #1d2939;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101318; --card: #181c23; --text: #f0f2f5; --muted: #98a2b3;
+      --border: #2a303a; --up: #3ecf8e; --up-bg: #10281e;
+      --down: #f97066; --down-bg: #2d1614; --warn: #f7b955; --warn-bg: #2b2010;
+      --accent: #e4e7ec;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+    padding: 40px 20px;
+  }
+  main { width: 100%; max-width: 680px; }
+  header { margin-bottom: 28px; }
+  h1 { font-size: 1.35rem; font-weight: 650; letter-spacing: -0.01em; }
+  header p { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+  #banner {
+    border-radius: 10px; padding: 16px 20px; font-weight: 600; margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px; border: 1px solid transparent;
+  }
+  #banner.up   { background: var(--up-bg);   color: var(--up); }
+  #banner.down { background: var(--down-bg); color: var(--down); }
+  #banner.warn { background: var(--warn-bg); color: var(--warn); }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: currentColor; flex: none; }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 18px; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .card .name { font-weight: 550; flex: 1 1 auto; min-width: 0; }
+  .card .meta { color: var(--muted); font-size: 0.82rem; white-space: nowrap; }
+  .pill {
+    font-size: 0.78rem; font-weight: 650; padding: 3px 10px; border-radius: 999px; white-space: nowrap;
+  }
+  .pill.up   { background: var(--up-bg);   color: var(--up); }
+  .pill.down { background: var(--down-bg); color: var(--down); }
+  footer { color: var(--muted); font-size: 0.8rem; margin-top: 28px; text-align: center; }
+  #updated { font-variant-numeric: tabular-nums; }
+  @media (max-width: 480px) {
+    .card { flex-wrap: wrap; gap: 8px; }
+    .card .meta { width: 100%; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Benson Goldstein — Service Status</h1>
+    <p>Live availability of public sites and the lead ingestion API</p>
+  </header>
+  <div id="banner" class="warn"><span class="dot"></span><span id="banner-text">Loading…</span></div>
+  <div id="monitors"></div>
+  <footer>Checks run every 30–60 seconds · Page refreshes automatically · <span id="updated"></span></footer>
+</main>
+<script>
+const STALE_MS = 5 * 60 * 1000;
+
+function esc(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+async function refresh() {
+  let doc;
+  try {
+    const r = await fetch('/api/status?_=' + Date.now(), { cache: 'no-store' });
+    doc = await r.json();
+  } catch (e) { doc = { monitors: [], received: null }; }
+
+  const banner = document.getElementById('banner');
+  const bannerText = document.getElementById('banner-text');
+  const list = document.getElementById('monitors');
+  const updated = document.getElementById('updated');
+
+  const received = doc.received ? new Date(doc.received) : null;
+  const stale = !received || (Date.now() - received.getTime() > STALE_MS);
+  const downCount = (doc.monitors || []).filter(m => m.status !== 1).length;
+
+  if (stale) {
+    banner.className = 'warn';
+    bannerText.textContent = received
+      ? 'Status data is stale — monitoring may be interrupted'
+      : 'No status data available yet';
+  } else if (downCount === 0) {
+    banner.className = 'up';
+    bannerText.textContent = 'All systems operational';
+  } else {
+    banner.className = 'down';
+    bannerText.textContent = downCount + ' service' + (downCount > 1 ? 's are' : ' is') + ' experiencing issues';
+  }
+
+  list.innerHTML = (doc.monitors || []).map(m => {
+    const ok = m.status === 1;
+    const uptime = (m.uptime24h != null) ? (m.uptime24h.toFixed(2) + '% (24h)') : '';
+    const ping = (ok && m.ping != null) ? m.ping + ' ms' : '';
+    const meta = [ping, uptime].filter(Boolean).join(' · ');
+    return '<div class="card">' +
+      '<span class="name">' + esc(m.name) + '</span>' +
+      '<span class="meta">' + esc(meta) + '</span>' +
+      '<span class="pill ' + (ok ? 'up' : 'down') + '">' + (ok ? 'Operational' : 'Down') + '</span>' +
+      '</div>';
+  }).join('') || '<div class="card"><span class="name" style="color:var(--muted)">Waiting for first data push…</span></div>';
+
+  updated.textContent = received ? ('Data as of ' + received.toLocaleTimeString('en-GB', { timeZone: 'Europe/London' }) + ' UK time') : '';
+}
+
+refresh();
+setInterval(refresh, 60000);
+</script>
+</body>
+</html>
