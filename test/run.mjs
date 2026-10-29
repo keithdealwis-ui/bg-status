@@ -32,7 +32,7 @@ for (const s of ['sample-data', 'sample-data-down', 'sample-data-monitor-failure
 
 // Today, real data.
 const today = buildReport(raw, now);
-assert.equal(today.groups.flatMap(g => g.pages).length, 3, 'Spotify and self-test excluded');
+assert.equal(today.groups.flatMap(g => g.pages).length, 3, 'Spotify and self-test excluded; TMG (8) not in this snapshot');
 assert.ok(!JSON.stringify(today).includes('Spotify'));
 write('real-today', today);
 
