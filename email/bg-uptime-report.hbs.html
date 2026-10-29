@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en-GB" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light only">
+<title>Benson Goldstein daily uptime report, {{report_date}}</title>
+<!--[if !mso]><!-->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<!--<![endif]-->
+<!--[if mso]>
+<noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+<style>td,th,div,p,a,h1,h2,h3,span{font-family:Arial,sans-serif !important;}</style>
+<![endif]-->
+<style>
+  /* ============================================================
+     Benson Goldstein brand tokens (brand.bensongoldstein.com v1.0.0)
+     Navy 900 #0F2137 | Navy 700 #1B3B5F | Navy 500 #24476B
+     Orange 500 #F7941D | Orange 600 #E07E10 | Success #2EAB63
+     Tint #E9EDFB | Page #FFFFFF
+     Non-brand, status only: Down #C0392B | No data #6B7A8C
+     Same shell as bg-daily-report.hbs.html.
+     ============================================================ */
+  body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+  table,td{mso-table-lspace:0pt;mso-table-rspace:0pt;}
+  img{-ms-interpolation-mode:bicubic;border:0;outline:none;text-decoration:none;display:block;}
+  body{margin:0 !important;padding:0 !important;width:100% !important;background:#E9EDFB;}
+  a{color:#1B3B5F;}
+  .t-link{color:#0F2137;text-decoration:none;}
+  .t-link:hover{text-decoration:underline;}
+  @media screen and (max-width:620px){
+    .container{width:100% !important;}
+    .px{padding-left:20px !important;padding-right:20px !important;}
+    .stat{display:block !important;width:50% !important;float:left !important;box-sizing:border-box;}
+    .stat-inner{padding:14px 8px !important;}
+    .stat-num{font-size:34px !important;}
+    .hide-sm{display:none !important;}
+    .h-date{font-size:24px !important;}
+    .tbl-pad-l{padding-left:12px !important;}
+    .tbl-pad-r{padding-right:12px !important;}
+    .strip{display:none !important;}
+  }
+</style>
+</head>
+<body style="margin:0;padding:0;background:#E9EDFB;">
+
+<!-- Preheader: shows in the inbox preview line, hidden in the body -->
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#E9EDFB;opacity:0;">
+  {{preheader}}&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;
+</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#E9EDFB;">
+<tr><td align="center" style="padding:24px 12px 40px;">
+
+<!--[if mso]><table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
+<table role="presentation" class="container" width="640" cellpadding="0" cellspacing="0" border="0" style="width:640px;max-width:640px;background:#FFFFFF;border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(15,33,55,.08);">
+
+  <!-- ===================== HEADER BAND (navy) ===================== -->
+  <tr>
+    <td class="px" style="background:#0F2137;padding:28px 36px 8px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td valign="middle">
+            <img src="{{logo_url}}" width="140" alt="Benson Goldstein" style="width:140px;height:auto;color:#FFFFFF;font-family:Poppins,'Helvetica Neue',Arial,sans-serif;font-weight:800;font-size:18px;">
+          </td>
+          <td valign="middle" align="right" class="hide-sm" style="font-family:Poppins,'Helvetica Neue',Arial,sans-serif;font-size:13px;line-height:1.5;color:#C9D3F2;">
+            Daily uptime report
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td class="px" style="background:#0F2137;padding:22px 36px 6px;font-family:Poppins,'Helvetica Neue',Arial,sans-serif;">
+      <h1 class="h-date" style="margin:0;font-size:28px;line-height:1.2;font-weight:800;color:#FFFFFF;letter-spacing:-0.3px;">{{report_date}}</h1>
+      <p style="margin:6px 0 0;font-size:14px;line-height:1.6;font-weight:400;color:#C9D3F2;">{{window_label}}</p>
+    </td>
+  </tr>
+
+  <!-- Headline numbers: four tiles on the navy band. Generator supplies exactly four. -->
+  <tr>
+    <td class="px" style="background:#0F2137;padding:18px 28px 30px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          {{#each stats}}
+          <td class="stat" width="25%" valign="top" style="width:25%;">
+            <div class="stat-inner" style="padding:14px 8px;font-family:Poppins,'Helvetica Neue',Arial,sans-serif;">
+              {{#if nodata}}
+              <div class="stat-num" style="font-size:40px;line-height:1;font-weight:800;color:#8A97AA;">&ndash;</div>
+              {{else}}{{#if alert}}
+              <div class="stat-num" style="font-size:40px;line-height:1;font-weight:800;color:#E35D4C;">{{value}}</div>
+              {{else}}{{#if good}}
+              <div class="stat-num" style="font-size:40px;line-height:1;font-weight:800;color:#5FD08F;">{{value}}</div>
+              {{else}}{{#if highlight}}
+              <div class="stat-num" style="font-size:40px;line-height:1;font-weight:800;color:#F7941D;">{{value}}</div>
+              {{else}}
+              <div class="stat-num" style="font-size:40px;line-height:1;font-weight:800;color:#FFFFFF;">{{value}}</div>
+              {{/if}}{{/if}}{{/if}}{{/if}}
+              <div style="margin-top:8px;font-size:13px;line-height:1.4;color:#C9D3F2;">{{label}}</div>
+              {{#if delta}}<div style="margin-top:2px;font-size:12px;line-height:1.4;color:#8A97AA;">{{delta}}</div>{{/if}}
+            </div>
+          </td>
+          {{/each}}
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  {{#if is_sample}}
+  <tr>
+    <td class="px" style="padding:24px 36px 0;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ECEFF3;border-radius:12px;">
+        <tr><td style="padding:12px 18px;font-family:Poppins,'Helvetica Neue',Arial,sans-serif;font-size:13px;line-height:1.6;color:#0F2137;">
+          <strong style="font-weight:700;">Sample data.</strong> Every name and figure in this email is illustrative, not live.
+        </td></tr>
+      </table>
+    </td>
+  </tr>
+  {{/if}}
+
+  <!-- ===================== DATA WARNING (only if a source failed) ===================== -->
+  {{#if data_warning}}
+  <tr>
+    <td class="px" style="padding:24px 36px 0;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#FFF4E5;border-left:4px solid #E07E10;border-radius:12px;">
+        <tr><td style="padding:14px 18px;font-family:Poppins,'Helvetica Neue',Arial,sans-serif;font-size:14px;line-height:1.6;color:#0F2137;">
+          <strong style="font-weight:700;">Incomplete report.</strong> {{data_warning}}
+        </td></tr>
+      </table>
+    </td>
+  </tr>
+  {{/if}}
+
+  <!-- ===================== DOWN NOW (only if a page is down at send time) ===================== -->
+  {{#if down_now}}
+  <tr>
+    <td class="px" style="padding:24px 36px 0;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#FBE3E0;border-left:4px solid #C0392B;border-radius:12px;">
+        <tr><td style="padding:14px 18px;font-family:Poppins,'Helvetica Neue',Arial,sans-serif;font-size:14px;line-height:1.6;color:#0F2137;">
+          <strong style="font-weight:700;color:#C0392B;">Down at time of sending.</strong>
+          {{#each down_now}}<div style="margin-top:4px;"><strong style="font-weight:600;">{{name}}</strong> &middot; down since {{since}}{{#if paid_traffic}} &middot; <span style="color:#C0392B;font-weight:600;">{{paid_traffic}}</span>{{/if}}</div>{{/each}}
+        </td></tr>
+      </table>
+    </td>
+  </tr>
+  {{/if}}
+
+  <!-- ===================== SUMMARY ===================== -->
+  <tr>
+    <td class="px" style="padding:28px 36px 4px;font-family:Poppins,'Helvetica Neue',Arial,sans-serif;">
+      <p style="margin:0;font-size:16px;line-height:1.7;font-weight:400;color:#1B3B5F;">{{{summary_html}}}</p>
+    </td>
+  </tr>
+
+  <!-- ===================== PAGES ===================== -->
+  <tr>
+    <td class="px" style="padding:34px 36px 0;font-family:Poppins,'Helvetica Neue',Arial,sans-serif;">
+      <h2 style="margin:0 0 4px;font-size:20px;line-height:1.3;font-weight:800;color:#0F2137;">Landing pages</h2>
+      <p style="margin:0 0 14px;font-size:13px;line-height:1.6;color:#6B7A8C;">{{pages_caption}}</p>
+      {{#if pages_nodata}}
+      <p style="margin:0;font-size:14px;line-height:1.6;color:#6B7A8C;">Monitoring could not be read this morning, so the health of these pages is unknown rather than healthy.</p>
+      {{else}}
+      {{#each groups}}
+      {{#if title}}<p style="margin:18px 0 8px;font-size:12px;line-height:1.4;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#24476B;">{{title}}</p>{{/if}}
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F6F8FE;border-radius:16px;">
+        <tr>
+          <td class="tbl-pad-l" style="padding:12px 18px 8px;font-size:12px;line-height:1.4;font-weight:600;color:#6B7A8C;">Page</td>
+          <td align="center" style="padding:12px 8px 8px;font-size:12px;line-height:1.4;font-weight:600;color:#6B7A8C;">Now</td>
+          <td align="right" style="padding:12px 8px 8px;font-size:12px;line-height:1.4;font-weight:600;color:#6B7A8C;">Uptime</td>
+          <td align="right" class="hide-sm" style="padding:12px 8px 8px;font-size:12px;line-height:1.4;font-weight:600;color:#6B7A8C;">Response</td>
+          <td align="right" class="tbl-pad-r" style="padding:12px 18px 8px;font-size:12px;line-height:1.4;font-weight:600;color:#6B7A8C;">Incidents</td>
+        </tr>
+        {{#each pages}}
+        <tr>
+          <td valign="top" class="tbl-pad-l" style="padding:10px 18px 4px;border-top:1px solid #E3E8F5;font-family:Poppins,'Helvetica Neue',Arial,sans-serif;">
+            <a href="{{url}}" class="t-link" style="font-size:14px;line-height:1.5;font-weight:600;color:#0F2137;text-decoration:none;">{{name}}</a>
+            <div style="font-size:12px;line-height:1.5;color:#6B7A8C;">{{display_url}}</div>
+            {{#if note}}<div style="margin-top:2px;font-size:12px;line-height:1.5;color:#24476B;">{{note}}</div>{{/if}}
+          </td>
+          <td valign="top" align="center" style="padding:10px 8px 4px;border-top:1px solid #E3E8F5;white-space:nowrap;">
+            {{#if is_up}}<span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#DDF4E6;color:#1E7A45;font-size:12px;line-height:1.6;font-weight:600;">Up</span>{{/if}}
+            {{#if is_degraded}}<span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#FFF0DC;color:#B4630A;font-size:12px;line-height:1.6;font-weight:600;">Slow</span>{{/if}}
+            {{#if is_down}}<span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#FBE3E0;color:#C0392B;font-size:12px;line-height:1.6;font-weight:600;">Down</span>{{/if}}
+            {{#if is_paused}}<span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#ECEFF3;color:#6B7A8C;font-size:12px;line-height:1.6;font-weight:600;">Paused</span>{{/if}}
+            {{#if is_nodata}}<span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#ECEFF3;color:#6B7A8C;font-size:12px;line-height:1.6;font-weight:600;">No data</span>{{/if}}
+          </td>
+          <td valign="top" align="right" style="padding:10px 8px 4px;border-top:1px solid #E3E8F5;font-size:14px;line-height:1.5;font-weight:600;color:#0F2137;white-space:nowrap;">{{#if is_nodata}}<span style="color:#6B7A8C;">&ndash;</span>{{else}}{{uptime_pct}}%{{/if}}</td>
+          <td valign="top" align="right" class="hide-sm" style="padding:10px 8px 4px;border-top:1px solid #E3E8F5;font-size:14px;line-height:1.5;font-weight:600;color:#0F2137;white-space:nowrap;">{{#if is_nodata}}<span style="color:#6B7A8C;">&ndash;</span>{{else}}{{response}}{{/if}}</td>
+          <td valign="top" align="right" class="tbl-pad-r" style="padding:10px 18px 4px;border-top:1px solid #E3E8F5;font-size:14px;line-height:1.5;font-weight:600;color:#0F2137;white-space:nowrap;">{{#if is_nodata}}<span style="color:#6B7A8C;">&ndash;</span>{{else}}{{incidents}}{{/if}}</td>
+        </tr>
+        {{#if hours}}
+        <!-- 24-hour strip: one cell per hour, oldest on the left. Hidden on small screens. -->
+        <tr class="strip">
+          <td colspan="5" class="tbl-pad-l tbl-pad-r" style="padding:2px 18px 12px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;">
+              <tr>
+                {{#each hours}}
+                {{#if up}}<td style="height:8px;padding:0 1px;"><div style="height:8px;border-radius:2px;background:#2EAB63;font-size:1px;line-height:1px;">&nbsp;</div></td>{{/if}}
+                {{#if partial}}<td style="height:8px;padding:0 1px;"><div style="height:8px;border-radius:2px;background:#F7941D;font-size:1px;line-height:1px;">&nbsp;</div></td>{{/if}}
+                {{#if down}}<td style="height:8px;padding:0 1px;"><div style="height:8px;border-radius:2px;background:#C0392B;font-size:1px;line-height:1px;">&nbsp;</div></td>{{/if}}
+                {{#if nodata}}<td style="height:8px;padding:0 1px;"><div style="height:8px;border-radius:2px;background:#D5DCEF;font-size:1px;line-height:1px;">&nbsp;</div></td>{{/if}}
+                {{/each}}
+              </tr>
+            </table>
+          </td>
+        </tr>
+        {{/if}}
+        {{/each}}
+      </table>
+      {{/each}}
+      {{#if strip_legend}}<p class="strip" style="margin:10px 0 0;font-size:12px;line-height:1.6;color:#6B7A8C;">{{strip_legend}}</p>{{/if}}
+      {{/if}}
+    </td>
+  </tr>
+
+  <!-- ===================== INCIDENTS ===================== -->
+  <tr>
+    <td class="px" style="padding:34px 36px 0;font-family:Poppins,'Helvetica Neue',Arial,sans-serif;">
+      <h2 style="margin:0 0 6px;font-size:20px;line-height:1.3;font-weight:800;color:#0F2137;">Incidents</h2>
+      {{#if pages_nodata}}
+      <p style="margin:8px 0 0;font-size:14px;line-height:1.6;color:#6B7A8C;">Not available until monitoring can be read.</p>
+      {{else}}{{#if incident_list}}
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        {{#each incident_list}}
+        <tr>
+          <td width="34" valign="top" style="padding:14px 0 0;width:34px;">
+            {{#if ongoing}}
+            <div style="width:22px;height:22px;border-radius:11px;background:#C0392B;color:#FFFFFF;font-size:14px;line-height:22px;text-align:center;font-weight:800;">!</div>
+            {{else}}
+            <div style="width:22px;height:22px;border-radius:11px;background:#2EAB63;color:#FFFFFF;font-size:13px;line-height:22px;text-align:center;font-weight:700;">&#10003;</div>
+            {{/if}}
+          </td>
+          <td valign="top" style="padding:12px 0;border-bottom:1px solid #EEF1F8;font-family:Poppins,'Helvetica Neue',Arial,sans-serif;">
+            <span style="font-size:15px;line-height:1.5;font-weight:600;color:#0F2137;">{{page}}</span>
+            <span style="font-size:12px;font-weight:600;color:{{#if ongoing}}#C0392B{{else}}#1E7A45{{/if}};">&nbsp;&nbsp;{{#if ongoing}}Ongoing{{else}}Resolved{{/if}}</span>
+            <div style="margin-top:3px;font-size:14px;line-height:1.6;font-weight:400;color:#24476B;">{{what}}</div>
+            <div style="margin-top:6px;">
+              <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:#E9EDFB;color:#1B3B5F;font-size:12px;line-height:1.6;font-weight:600;">{{window}} &middot; {{duration}}</span>
+              {{#if ticket_id}}<a href="{{ticket_url}}" style="display:inline-block;padding:2px 10px;border-radius:999px;background:#E9EDFB;color:#1B3B5F;font-size:12px;line-height:1.6;font-weight:600;text-decoration:none;">{{ticket_id}}</a>{{/if}}
+            </div>
+          </td>
+        </tr>
+        {{/each}}
+      </table>
+      {{else}}
+      <p style="margin:8px 0 0;font-size:14px;line-height:1.6;color:#6B7A8C;">No incidents in this window.</p>
+      {{/if}}{{/if}}
+    </td>
+  </tr>
+
+  <!-- ===================== EXPIRING (only if something is inside the warning window) ===================== -->
+  {{#if expiring}}
+  <tr>
+    <td class="px" style="padding:34px 36px 0;font-family:Poppins,'Helvetica Neue',Arial,sans-serif;">
+      <h2 style="margin:0 0 4px;font-size:20px;line-height:1.3;font-weight:800;color:#0F2137;">Coming up for renewal</h2>
+      <p style="margin:0 0 6px;font-size:13px;line-height:1.6;color:#6B7A8C;">{{expiring_caption}}</p>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        {{#each expiring}}
+        <tr>
+          <td width="34" valign="top" style="padding:14px 0 0;width:34px;">
+            <div style="width:22px;height:22px;border-radius:11px;background:#F7941D;color:#FFFFFF;font-size:14px;line-height:22px;text-align:center;font-weight:800;">!</div>
+          </td>
+          <td valign="top" style="padding:12px 0;border-bottom:1px solid #EEF1F8;font-family:Poppins,'Helvetica Neue',Arial,sans-serif;">
+            <span style="font-size:15px;line-height:1.5;font-weight:600;color:#0F2137;">{{item}}</span>
+            <div style="margin-top:3px;font-size:14px;line-height:1.6;font-weight:400;color:#24476B;">{{detail}}</div>
+          </td>
+        </tr>
+        {{/each}}
+      </table>
+    </td>
+  </tr>
+  {{/if}}
+
+  <!-- ===================== CTA ===================== -->
+  <tr>
+    <td class="px" align="left" style="padding:32px 36px 8px;">
+      <!--[if mso]>
+      <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="{{cta_url}}" style="height:48px;v-text-anchor:middle;width:270px;" arcsize="50%" stroke="f" fillcolor="#F7941D">
+        <w:anchorlock/><center style="color:#FFFFFF;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;">{{cta_label}}</center>
+      </v:roundrect>
+      <![endif]-->
+      <!--[if !mso]><!-->
+      <a href="{{cta_url}}" style="display:inline-block;background:#F7941D;color:#FFFFFF;font-family:Poppins,'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1;font-weight:700;text-decoration:none;padding:8px 8px 8px 24px;border-radius:999px;box-shadow:0 6px 18px rgba(247,148,29,.35);">
+        <span style="display:inline-block;vertical-align:middle;padding-right:12px;">{{cta_label}}</span><span style="display:inline-block;vertical-align:middle;width:32px;height:32px;border-radius:16px;background:#FFFFFF;color:#F7941D;font-size:16px;line-height:32px;text-align:center;font-weight:800;">&#8594;</span>
+      </a>
+      <!--<![endif]-->
+    </td>
+  </tr>
+
+  <!-- ===================== SIGN-OFF + FRESHNESS ===================== -->
+  <tr>
+    <td class="px" style="padding:28px 36px 0;font-family:Poppins,'Helvetica Neue',Arial,sans-serif;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #E3E8F5;">
+        <tr><td style="padding:22px 0 0;">
+          <p style="margin:0;font-size:14px;line-height:1.6;font-weight:600;color:#0F2137;">Keith de Alwis</p>
+          <p style="margin:2px 0 0;font-size:13px;line-height:1.6;color:#24476B;">This report is generated automatically each morning from Uptime Kuma. Reply to this email to reach me directly.</p>
+        </td></tr>
+        <tr><td style="padding:16px 0 0;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td style="padding:0 16px 0 0;font-size:12px;line-height:1.7;color:#6B7A8C;">Monitoring data</td>
+              <td style="font-size:12px;line-height:1.7;color:#24476B;">{{#if freshness.monitor_ok}}{{freshness.monitor_at}}{{else}}<span style="color:#B4630A;font-weight:600;">Unavailable</span>{{/if}}</td>
+            </tr>
+            <tr>
+              <td style="padding:0 16px 0 0;font-size:12px;line-height:1.7;color:#6B7A8C;">Generated</td>
+              <td style="font-size:12px;line-height:1.7;color:#24476B;">{{freshness.generated_at}}</td>
+            </tr>
+          </table>
+        </td></tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- ===================== FOOTER ===================== -->
+  <tr>
+    <td class="px" style="padding:28px 36px 30px;font-family:Poppins,'Helvetica Neue',Arial,sans-serif;">
+      <p style="margin:0;font-size:11px;line-height:1.6;color:#8A97AA;">Internal and confidential. Prepared for the Benson Goldstein leadership team. Benson Goldstein is a trading name of Benson Goldstein Ltd, a company registered in England and Wales (company number 14417365), authorised and regulated by the Solicitors Regulation Authority under SRA No. 8003245.</p>
+    </td>
+  </tr>
+
+</table>
+<!--[if mso]></td></tr></table><![endif]-->
+
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,741 @@
+{
+  "is_sample": true,
+  "report_date": "Thursday 29 October",
+  "window_label": "The 24 hours to 07:00 UK time, from Uptime Kuma",
+  "preheader": "SAMPLE. Incomplete: monitoring data unavailable this morning.",
+  "logo_url": "__EMBED__",
+  "cta_url": "https://bg-status.vercel.app",
+  "cta_label": "Open the status page",
+  "data_warning": "Uptime Kuma could not be reached at 07:00, so the health of every page below is unknown rather than healthy. Check the status page directly.",
+  "stats": [
+    {
+      "label": "Uptime, all pages",
+      "nodata": true
+    },
+    {
+      "label": "Pages up now",
+      "nodata": true
+    },
+    {
+      "label": "Incidents",
+      "nodata": true
+    },
+    {
+      "label": "Total downtime",
+      "nodata": true
+    }
+  ],
+  "summary_html": "Monitoring could not be read this morning, so there is no uptime picture today. Nothing below should be read as the pages being healthy.",
+  "pages_caption": "Last 24 hours. Uptime is the share of checks that passed; response is the average.",
+  "groups": [
+    {
+      "title": "Make Your Claim",
+      "pages": [
+        {
+          "name": "Home",
+          "url": "https://makeyourclaim.com/",
+          "display_url": "makeyourclaim.com",
+          "is_up": true,
+          "uptime_pct": "100.00",
+          "response": "312 ms",
+          "incidents": "0",
+          "hours": [
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            }
+          ]
+        },
+        {
+          "name": "Eligibility check",
+          "url": "https://makeyourclaim.com/check",
+          "display_url": "makeyourclaim.com/check",
+          "is_up": true,
+          "uptime_pct": "99.58",
+          "response": "341 ms",
+          "incidents": "1",
+          "note": "Down 6 min at 02:14, recovered on its own",
+          "hours": [
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "partial": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            }
+          ]
+        },
+        {
+          "name": "Paddy campaign page",
+          "url": "https://makeyourclaim.com/paddy",
+          "display_url": "makeyourclaim.com/paddy",
+          "is_degraded": true,
+          "uptime_pct": "100.00",
+          "response": "1,840 ms",
+          "incidents": "0",
+          "note": "Response time up from about 400 ms since 05:00",
+          "hours": [
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "partial": true
+            },
+            {
+              "partial": true
+            }
+          ]
+        },
+        {
+          "name": "Thank you page",
+          "url": "https://makeyourclaim.com/thank-you",
+          "display_url": "makeyourclaim.com/thank-you",
+          "is_up": true,
+          "uptime_pct": "100.00",
+          "response": "288 ms",
+          "incidents": "0",
+          "hours": [
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "PCP Refund Check",
+      "pages": [
+        {
+          "name": "Home",
+          "url": "https://pcprefundcheck.co.uk/",
+          "display_url": "pcprefundcheck.co.uk",
+          "is_up": true,
+          "uptime_pct": "100.00",
+          "response": "355 ms",
+          "incidents": "0",
+          "hours": [
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            }
+          ]
+        },
+        {
+          "name": "Refund calculator",
+          "url": "https://pcprefundcheck.co.uk/calculator",
+          "display_url": "pcprefundcheck.co.uk/calculator",
+          "is_up": true,
+          "uptime_pct": "100.00",
+          "response": "402 ms",
+          "incidents": "0",
+          "hours": [
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            }
+          ]
+        },
+        {
+          "name": "Meta landing page",
+          "url": "https://pcprefundcheck.co.uk/start",
+          "display_url": "pcprefundcheck.co.uk/start",
+          "is_paused": true,
+          "uptime_pct": "100.00",
+          "response": "–",
+          "incidents": "0",
+          "note": "Monitor paused while the page is rebuilt",
+          "hours": []
+        }
+      ]
+    },
+    {
+      "title": "Benson Goldstein",
+      "pages": [
+        {
+          "name": "Home",
+          "url": "https://bensongoldstein.com/",
+          "display_url": "bensongoldstein.com",
+          "is_up": true,
+          "uptime_pct": "100.00",
+          "response": "276 ms",
+          "incidents": "0",
+          "hours": [
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            }
+          ]
+        },
+        {
+          "name": "Client documents",
+          "url": "https://bensongoldstein.com/documents",
+          "display_url": "bensongoldstein.com/documents",
+          "is_up": true,
+          "uptime_pct": "100.00",
+          "response": "198 ms",
+          "incidents": "0",
+          "hours": [
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            },
+            {
+              "up": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "strip_legend": "Each bar is one hour, 07:00 yesterday on the left. Green all checks passed, orange some failed or slow, red down, grey no data.",
+  "incident_list": [
+    {
+      "page": "Make Your Claim, eligibility check",
+      "what": "Timed out on 3 consecutive checks, then recovered on the next. No cause established.",
+      "window": "02:14 to 02:20",
+      "duration": "6m 02s"
+    }
+  ],
+  "expiring_caption": "SSL certificates and domains inside the 21-day warning window.",
+  "expiring": [],
+  "freshness": {
+    "monitor_ok": false,
+    "monitor_at": "Thu 29 Oct, 06:59 UK",
+    "generated_at": "Thu 29 Oct, 07:00 UK"
+  },
+  "pages_nodata": true
+}
